@@ -63,4 +63,4 @@ To build PyTorch, we simply run
 ```
 python3 setup.py bdist_wheel
 ```
-The entire build process should only take few hours (compared to the >12 hour time it would take on the Pi).
+The entire build process should only take few hours (compared to the >12 hour time it would take on the Pi). The wheel will then be in */pytorch/dist/* folder.
