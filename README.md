@@ -1,6 +1,9 @@
 # pytorch-debian-arm-build
 Build instructions for PyTorch on Raspberry Pi 3 B+ running the 32-bit Raspbian Buster using a chroot on Ubuntu.
 
+# Pre-Built Wheel File
+The include .whl file was built on Ubuntu 18.04 using the below approach, with Python 3.7.3 and PyTorch v1.3.0.
+
 # Build Instructions
 Rather than build PyTorch from scratch on the device itself, we can instead build on a more powerful machine running Linux using a combination of chroot and QEMU. A chroot allows us to setup an isolated environment by changing the apparent root directory, while QEMU allows us to emulate the target ARM processor on a non-ARM machine. These instructions were adapted from [here](https://blog.lazy-evaluation.net/posts/linux/debian-armhf-bootstrap.html), [here](https://www.binarytides.com/setup-chroot-ubuntu-debootstrap/), and [here](https://nmilosev.svbtle.com/compling-arm-stuff-without-an-arm-board-build-pytorch-for-the-raspberry-pi).
 
@@ -63,4 +66,7 @@ To build PyTorch, we simply run
 ```
 python3 setup.py bdist_wheel
 ```
-The entire build process should only take few hours (compared to the >12 hour time it would take on the Pi). The wheel will then be in */pytorch/dist/* folder.
+The entire build process should only take few hours (compared to the >12 hour time it would take on the Pi). The wheel will then be in */pytorch/dist/* folder, which you can install by copying to the Pi and installing with 
+```
+python -m pip install <path-to-wheel>
+```
