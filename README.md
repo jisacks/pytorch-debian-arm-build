@@ -28,9 +28,10 @@ sudo cp /etc/resolv.conf <path-to-chroot>/etc/
   
 Now we enter the chroot and complete the second stage of debootstrap:
 ```
-sudo chroot /srv/chroot/buster_armhf
+sudo chroot <path-to-chroot>
 /debootstrap/debootstrap --second-stage
 ```
+Again, this second stage should install all of the build-essential packages for Debian Buster.
   
 Since we have created a new file system, we need to install all our dependencies to build PyTorch, regardless if they have been installed on the original file system:
 ```
